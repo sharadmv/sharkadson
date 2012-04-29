@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <script src='http://code.jquery.com/jquery-1.7.2.min.js' type='text/javascript'></script>
+    <script src="/bridge.min.js" type="text/javascript"></script>
+    <script>
+      bridge = new Bridge({apiKey:"abcdefgh"});
+      bridge.connect();
+      bridge.getService("sharkad",function(obj){
+        sharkad = obj;
+        $("#accel").mousedown(sharkad.accel);
+        $("#accel").click(sharkad.stop);
+        $("#decel").mousedown(sharkad.decel);
+        $("#decel").click(sharkad.stop);
+        $("#f").click(sharkad.accel);
+        $("#b").click(sharkad.decel);
+        $("#s").click(sharkad.stop);
+      });
+    </script>
+  </head>
+  <body>
+    <button id="accel">Accelerate</button>
+    <button id="decel">Decelerate</button>
+    <button id="f">Forward</button>
+    <button id="b">Backward</button>
+    <button id="s">Stop</button>
+  </body>
+</html>
